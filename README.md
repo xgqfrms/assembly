@@ -65,6 +65,13 @@ $ which gcc
 $ nasm -f elf abc.asm -o abc.o
 # abc.o => abc
 $ gcc -m32 abc.o -o abc
+# The i386 architecture is deprecated for macOS, ..., symbol(s) not found for architecture i386
+
+$ gcc -m64 abc.o -o abc
+# Undefined symbols for architecture x86_64:
+
+$ gcc macho64 abc.o -o abc
+# clang: error: no such file or directory: 'macho64'
 
 # 查看编译后的文件
 $ ls -al
@@ -72,5 +79,16 @@ $ ls -al
 
 # 运行
 $ ./abc ; echo $?
+
+```
+
+```sh
+$ nasm -f macho64 -o hello-world.o hello-world.asm
+
+$ ld -o hello-world -e _main hello-world.o
+# ld: warning: No version-min specified on command line
+# ld: dynamic main executables must link with libSystem.dylib for inferred architecture x86_64
+
+$ ./hello-world
 
 ```
