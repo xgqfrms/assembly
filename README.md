@@ -33,14 +33,44 @@ http://c.biancheng.net/view/3294.html
 https://zhuanlan.zhihu.com/p/23618489
 
 
-编译运行了。来一堆命令先：
+```sh
+# 环境安装
+$ brew install gcc nasm gcc-multilib -y
+# $ sudo apt-get install gcc nasm vim gcc-multilib -y
 
-$ nasm -f elf first.asm -o first.o
-$ gcc -m32 first.o -o first
-这下，程序就编译好了，像这样：
+# 重装 nasm
+$ brew reinstall nasm
 
-$ ls
-first  first.asm  first.o
-好了我们运行一下：
+$ nasm -v
+# NASM version 2.14.02 compiled on Dec 27 2018
 
-$ ./first ; echo $?
+$ gcc -v
+# Configured with: --prefix=/Library/Developer/CommandLineTools/usr --with-gxx-include-dir=/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/c++/4.2.1
+# Apple LLVM version 10.0.1 (clang-1001.0.46.4)
+# Target: x86_64-apple-darwin18.7.0
+# Thread model: posix
+# InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+
+$ which nasm
+# /usr/bin/nasm
+
+$ which gcc
+# /usr/bin/gcc
+
+```
+
+```sh
+# 编译
+# abc.asm => abc.o
+$ nasm -f elf abc.asm -o abc.o
+# abc.o => abc
+$ gcc -m32 abc.o -o abc
+
+# 查看编译后的文件
+$ ls -al
+# abc abc.o abc.asm
+
+# 运行
+$ ./abc ; echo $?
+
+```
