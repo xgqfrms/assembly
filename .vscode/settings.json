@@ -64,7 +64,7 @@
     "html.format.enable": false,
     "html.format.contentUnformatted": "body, div, section, script, pre,code,textarea",
     "workbench.colorCustomizations": {
-        "activityBar.background": "#2dff1a",
+        "activityBar.background": "#1accff",
         "activityBar.activeBorder": "#df00ad",
         "activityBar.foreground": "#15202b",
         "activityBar.inactiveForeground": "#15202b99",
